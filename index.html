@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Boolzap</title>
+</head>
+<body>
+    <div id="root" class="container">
+        <aside>
+            <div class="header">
+                <div class="userCard">
+                    <img src="./img/avatar_io.jpg" alt="me">
+                    Nome utente
+                </div>
+                <div class="utility">
+                    <i class="fa-solid fa-circle-notch"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="circle">
+                    <i class="fa-solid fa-bell-slash"></i>
+                </div>
+                <div>
+                    <h4>Ricevi notifiche di nuovi messaggi</h4>
+                    <a href="#"><h5>Attiva notifiche desktop</h5></a>
+                </div>
+            </div>
+            <div class="search">
+                <div class="searchIcon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <input type="text" placeholder="Cerca o inizia una nuova chat">   
+            </div>
+            <ul class="contactsContainer">
+                <li v-for="contact in contacts">
+                    <img :src="`./img/avatar${contact.avatar}.jpg`" :alt="contact.name">
+                    {{contact.name}}
+                </li>
+            </ul>
+        </aside>
+        <main>
+            <div class="header">
+                <div class="userCard">
+                    <img src="./img/avatar_1.jpg" alt="Michele">
+                    <div class="info">
+                        <h4>Michele</h4>
+                        <h5>Ultimo accesso oggi alle 10:35</h5>
+                    </div>
+                </div>
+                <div class="utility">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-paperclip"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+            <div class="messagesContainer">
+                <div class="recived">Messaggio 1</div>
+                <div class="sent">Messaggio 2</div>
+            </div>
+            <div class="writingBar">
+                <div class="emoji"><i class="fa-regular fa-face-smile"></i></div>
+                <input type="text" placeholder="scrivi un messaggio">
+                <div class="vocal"><i class="fa-solid fa-microphone"></i></div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
