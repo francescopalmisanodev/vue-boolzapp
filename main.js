@@ -87,6 +87,7 @@ const app1 = new Vue({
         ],
         active: 0,
         newMsg:"",
+        search:"",
     },
     methods: {
         setActive(i){
@@ -108,6 +109,20 @@ const app1 = new Vue({
                 });
             }, 1000);
             }
+        },
+        searchContacts(){
+            if (this.search!=="") {
+                
+                this.contacts.forEach(contact => {
+                    if(!contact.name.toLowerCase().includes(this.search.toLowerCase())){
+                        contact.visible=false;
+                    }else{
+                        contact.visible=true;
+                    }   
+                });
+                this.search="";
+            }
+            
         }
     }
 });

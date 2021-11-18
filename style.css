@@ -85,7 +85,7 @@ aside {
   flex-grow: 1;
   height: 30px;
   border: 1px solid lightgrey;
-  color: #d2d7db;
+  color: gray;
   padding: 10px;
 }
 .contactsContainer li {
@@ -185,4 +185,7 @@ i {
 }
 .active {
   background-color: lightgray;
+}
+li.hide {
+  display: none;
 }

@@ -39,10 +39,10 @@
                 <div class="searchIcon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">   
+                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model.trim="search" @keyup.enter="searchContacts">   
             </div>
             <ul class="contactsContainer">
-                <li v-for="(contact, i) in contacts" @click="setActive(i)" :class="{active: i===active}">
+                <li v-for="(contact, i) in contacts" @click="setActive(i)"  :class="{hide: !contact.visible, active: i===active}">
                     <img :src="`./img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                     {{contact.name}}
                 </li>
