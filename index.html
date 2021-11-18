@@ -42,7 +42,7 @@
                 <input type="text" placeholder="Cerca o inizia una nuova chat">   
             </div>
             <ul class="contactsContainer">
-                <li v-for="contact in contacts">
+                <li v-for="(contact, i) in contacts" @click="setActive(i)" :class="{active: i===active}">
                     <img :src="`./img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                     {{contact.name}}
                 </li>
@@ -51,9 +51,9 @@
         <main>
             <div class="header">
                 <div class="userCard">
-                    <img src="./img/avatar_1.jpg" alt="Michele">
+                    <img :src="`./img/avatar${contacts[active].avatar}.jpg`" :alt="contacts[active].name">
                     <div class="info">
-                        <h4>Michele</h4>
+                        <h4>{{contacts[active].name}}</h4>
                         <h5>Ultimo accesso oggi alle 10:35</h5>
                     </div>
                 </div>
@@ -64,18 +64,17 @@
                 </div>
             </div>
             <div class="messagesContainer">
-                <div class="recived">Messaggio 1</div>
-                <div class="sent">Messaggio 2</div>
+                <div v-for="message in contacts[active].messages" :class="message.status">{{message.text}}</div>
             </div>
             <div class="writingBar">
                 <div class="emoji"><i class="fa-regular fa-face-smile"></i></div>
-                <input type="text" placeholder="scrivi un messaggio">
+                <input type="text" placeholder="scrivi un messaggio" v-model.trim="newMsg" @keyup.enter="addMsg">
                 <div class="vocal"><i class="fa-solid fa-microphone"></i></div>
             </div>
         </main>
 
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js" integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="main.js"></script>
 </body>
 </html>
